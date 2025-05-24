@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Agenda eletrônica</h1>
+    <button id="botao">agendar</button>
+    <p>Tempo restante : <span id=timer></span></p>
+    <p id="mensagem"></p>
+    <script>
+        let tempo = 4
+        document.getElementById('botao').addEventListener('click', () => {
+            document.getElementById('timer').textContent = tempo
+            let intervalo = setInterval(()=> {
+                document.getElementById('timer').textContent = tempo
+                tempo--
+                if(tempo < 0){
+                    clearInterval(intervalo)
+                }
+            },1000)
+            setTimeout(() =>{
+                document.getElementById('mensagem').textContent = 'Não se esqueça da sua reunião'
+            }, 5000)
+        })
+    </script>
+</body>
+</html>

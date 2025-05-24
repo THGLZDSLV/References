@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Crônometro Regressivo</h1>
+    <input type="text" id="value">
+    <button id="botao">Cronometrar</button>
+    <p>Tempo Restante : <span id="restante"></span></p>
+    <script>
+        let tempo = document.getElementById('value').Value
+        let botao = document.getElementById('botao')
+        let restante = document.getElementById('restante')
+        let cronometro = setInterval(() => {
+            tempo--
+            if (tempo <= 0){
+                alert('Tempo esgotado')
+            }
+        })
+        botao.addEventListener('click', function(){
+            tempo.textContent = document.getElementById('value').Value
+        })
+    </script>
+</body>
+</html>
