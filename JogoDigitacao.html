@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitação</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input{
+            background-color: rgb(56, 56, 56);
+            color: white;
+        }
+        .A{
+            background-color: rgb(46, 46, 46);
+            border-radius: 5px;
+            padding: 10px;
+            border: white 2px solid;
+        }
+    </style>
+    <h1>Jogo de Digitação</h1>
+    <p class="A">Frase para ser digitada</p>
+    <input id="caixa" type="text">
+    <p>Tempo : <span id='tempo'>0</span></p>
+    <p id="resultado"></p>
+
+    <script>
+        let caixa = document.getElementById('caixa')
+        let tempo = document.getElementById('tempo')
+        let resultado = document.getElementById('resultado')
+        let textoOriginal = document.getElementsByClassName('A')
+        let contador = 0
+        let intervalo = setInterval(()=>{
+            caixa.addEventListener('input',ativarTempo())
+            
+        }, 1000)
+        function ativarTempo(){
+            tempo.textContent = contador
+            contador++
+        }
+        if(caixa.value === textoOriginal){
+            clearInterval(intervalo)
+            resultado.textContent = 'Parabéns, seu tempo foi :'+ contador +'segundos'
+        }
+    </script>
+</body>
+</html>

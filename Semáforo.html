@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +7,77 @@
 </head>
 <body>
     <div id="fundo">
-        <div id="farol">
-            <div id="farol2">
-                <div id="farol3"></div>
-            </div>
-
+        <div class="luzes">
+            <div id="farol"></div>
+            <div id="farol2"></div>
+            <div id="farol3"></div>
         </div>
-        
     </div>
+    <button id="btn">Ligar</button>
     <style>
         #fundo{
             width: 90px;
-            height: 200px;
+            height: 210px;
             background-color: black;
+            display: flex;
+            }
+        .luzes{
+            margin: auto;
         }
         #farol{
             width: 60px;
             height: 60px;
-            background-color: red;
+            background-color: rgb(71, 71, 71);
             border-radius: 45px;
-            margin: 0 auto;
+            margin-bottom: 5px;
         }
         #farol2{
             width: 60px;
             height: 60px;
-            background-color: red;
+            background-color: rgb(70, 70, 70);
             border-radius: 45px;
-            margin: 0 auto;
         }
         #farol3{
             width: 60px;
             height: 60px;
-            background-color: red;
+            background-color: rgb(71, 71, 71);
             border-radius: 45px;
-            margin: 0 auto;}
+            margin-top: 5px;
+        }
+        #btn{
+            margin-top: 10px;
+        }
 
     </style>
-    <script></script>
+    <script>
+        let luzR = document.getElementById('farol')
+        let luzY = document.getElementById('farol2')
+        let luzG = document.getElementById('farol3')
+
+        document.getElementById('btn').addEventListener('click', function iniciar(){
+            if (luzG.style.background === 'green'){
+                intervalo = setTimeout(()=> {
+                    luzY.style.background = 'yellow'
+                    luzG.style.background = 'rgb(71, 71, 71)'
+                    iniciar()
+                }, 2000)
+            }
+            else if (luzY.style.background === 'yellow'){
+                intervalo2 = setTimeout(()=> {
+                    luzY.style.background = 'rgb(71, 71, 71)'
+                    luzR.style.background = 'red'
+                    iniciar()
+                }, 2000)
+            }
+            else {
+                intervalo3 = setInterval(()=> {
+                    luzG.style.background = 'green'
+                    luzR.style.background = 'rgb(71, 71, 71)'
+                    iniciar()
+                }, 2000)
+                
+            }
+        })
+    </script>
 </body>
 </html>
